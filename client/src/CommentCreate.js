@@ -6,7 +6,9 @@ const CommentCreate = ({ postId }) => {
   const onSubmit = async (event) => {
     try {
       event.preventDefault()
-      await axios.post(`http://localhose:4001/${postId}/comments`, { content })
+      await axios.post(`http://localhost:4001/posts/${postId}/comments`, {
+        content
+      })
       setContent('')
     } catch (e) {
       alert('something when wrong')

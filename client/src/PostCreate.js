@@ -10,6 +10,7 @@ const PostCreate = () => {
       await axios.post('http://localhost:4000/posts', { title })
       setTitle('')
     } catch (e) {
+      console.log(`e`, e)
       alert('some thing wrong')
     }
   }
