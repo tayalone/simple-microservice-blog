@@ -1,7 +1,14 @@
 import React from 'react'
+import PostCreate from './PostCreate'
 
 const App = () => {
-  return <div>Blog App</div>
+  return (
+    <div>
+      <h1>Blog App</h1>
+
+      <PostCreate />
+    </div>
+  )
 }
 
 export default App
