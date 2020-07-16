@@ -10,7 +10,7 @@ const commentsByPostId = {}
 app.get('/posts/:id/comments', (req, res) => {
   //   res.send(posts)
   const { id } = req.params
-  res.send(commentsByPostId[id])
+  res.send(commentsByPostId[id] || [])
 })
 
 app.post('/posts/:id/comments', (req, res) => {
