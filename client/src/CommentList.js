@@ -3,7 +3,16 @@ import axios from 'axios'
 
 const CommentList = ({ comments }) => {
   const renderedComments = comments.map((comment) => {
-    return <li key={comment.id}>{comment.content}</li>
+    const { status, content } = comment
+    const renderContent =
+      status === 'approved'
+        ? content
+        : status === 'pending'
+        ? 'This comment is awaiting moderation'
+        : status === 'rejected'
+        ? 'This comment have been rejected'
+        : '-'
+    return <li key={comment.id}>{renderContent}</li>
   })
   return <ul>{renderedComments}</ul>
 }
