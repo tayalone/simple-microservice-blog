@@ -12,6 +12,9 @@ app.post('/events', (req, res) => {
 
   //const url1 = 'http://localhost:4000/events' // localhost
   const url1 = 'http://posts-clusterid-srv:4000/events'
+  const url2 = 'http://comments-srv:4000/events'
+  const url3 = 'http://query--srv:4000/events'
+  const url4 = 'http://moderation--srv:4000/events'
 
   axios.post(url1, event)
   // axios.post('http://localhost:4001/events', event)
