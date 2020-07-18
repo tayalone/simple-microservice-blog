@@ -23,7 +23,9 @@ app.post('/posts', async (req, res) => {
     title
   }
 
-  await axios.post('http://localhost:4005/events', {
+  // const url = 'http://localhost:4005/events' // localhost
+  const url = 'http://event-bus-srv:4005/events' // k8s **cluster ip service
+  await axios.post(url, {
     type: 'PostCreated',
     data: { id, title }
   })

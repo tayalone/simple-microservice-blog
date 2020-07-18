@@ -10,10 +10,13 @@ app.post('/events', (req, res) => {
   const { body: event } = req
   events.push(event)
 
-  axios.post('http://localhost:4000/events', event)
-  axios.post('http://localhost:4001/events', event)
-  axios.post('http://localhost:4002/events', event)
-  axios.post('http://localhost:4003/events', event)
+  //const url1 = 'http://localhost:4000/events' // localhost
+  const url1 = 'http://posts-clusterid-srv:4000/events'
+
+  axios.post(url1, event)
+  // axios.post('http://localhost:4001/events', event)
+  // axios.post('http://localhost:4002/events', event)
+  // axios.post('http://localhost:4003/events', event)
 
   res.send({ status: 'OK' })
 })
