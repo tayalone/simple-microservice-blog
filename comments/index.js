@@ -25,7 +25,10 @@ app.post('/posts/:id/comments', async (req, res) => {
 
   commentsByPostId[req.params.id] = comments
 
-  await axios.post('http://localhost:4005/events', {
+  // const url = 'http://localhost:4005/events' //old
+  const url = 'http://event-bus-srv:4005/events'
+
+  await axios.post(url, {
     type: 'CommentCreated',
     data: {
       id: commentId,
@@ -49,7 +52,11 @@ app.post('/events', async (req, res) => {
     comments[commentIndex].status = status
 
     commentsByPostId[postId] = comments
-    await axios.post('http://localhost:4005/events', {
+
+    // const url = 'http://localhost:4005/events' //old
+    const url = 'http://event-bus-srv:4005/events'
+
+    await axios.post(url, {
       type: 'CommentUpdated',
       data: { postId, id, status, content }
     })
